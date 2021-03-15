@@ -22,4 +22,12 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig');
 });
 
+
+// ITO TAMBAH 1 sesuai latihan heroku
+
+$app->get('/cowsay', function() use($app) {
+  $app['monolog']->addDebug('cowsay');
+  return "<pre>".\Cowsayphp\Cow::say("Cool Beans")."</pre>;
+});
+
 $app->run();
